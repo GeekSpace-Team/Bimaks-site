@@ -1,23 +1,9 @@
 {
-  "sidebar": {
-    "admin": "Admin Panel",
-    "settings": "Sahypalar",
-    "dashboard": "Daşboard",
-    "codes": "Kod",
-    "search": "Gözlemek  ..."
-  },
-  "table": {
-    "code": "Kod",
-    "title": "Ady",
-    "description": "Düşündiriş",
-    "short_name": "Gysgaça ady",
-    "parent_id": "Parent ID",
-    "status": "Status",
-    "actions": "Goşmaçalar",
-    "active": "Işjeň",
-    "pending": "Garaşylýar",
-    "disabled": "Öçürilen",
-    "delete": "Pozmak",
-    "edit": "Üýtgetmek"
+  "nav": {
+    "home": "Baş sahypa",
+    "about": "Biz barada",
+    "news": "Täzelikler",
+    "departments": "Bölümler",
+    "laboratories": "Barlaghanalar"
   }
 }
