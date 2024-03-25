@@ -9,10 +9,10 @@ const Language: FC = () => {
   };
 
   return (
-    <div className="flex items-center space-x-2 relative">
+    <div className="flex items-center dark:text-gray-900  space-x-2 relative">
       <select
         id="languageSelect"
-        className="px-2 py-1 border rounded-md outline-none cursor-pointer appearance-none"
+        className="px-2 py-1 border rounded-md outline-none  cursor-pointer appearance-none"
         onChange={(e) => changeLanguage(e.target.value)}
         value={i18n.language}
       >

@@ -10,17 +10,7 @@ export const navItems = [
   },
 
   {
-    title: "nav.news",
-    path: "/news",
-  },
-
-  {
-    title: "nav.departments",
-    path: "/departments",
-  },
-
-  {
-    title: "nav.laboratories",
-    path: "/laboratories",
+    title: "nav.products",
+    path: "/products",
   },
 ];

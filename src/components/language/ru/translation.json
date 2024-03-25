@@ -2,8 +2,6 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "news": "News",
-    "departments": "Departments",
-    "laboratories": "Laboratories"
+    "products": "Products"
   }
 }
