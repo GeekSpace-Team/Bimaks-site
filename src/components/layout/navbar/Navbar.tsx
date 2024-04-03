@@ -82,7 +82,7 @@ const Navbar: FC = () => {
         </List>
       </Drawer>
 
-      <div className="hidden md:flex items-center justify-between   gap-4 md:gap-8">
+      <div className="hidden md:flex items-center justify-between gap-4 md:gap-8">
         {navItems.map((item, i) => (
           <Link key={i} to={item.path} className="hover:underline">
             {t(item.title)}

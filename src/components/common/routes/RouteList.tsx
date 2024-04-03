@@ -1,13 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "../../layout/Layout";
-import {
-  About,
-  Departments,
-  Home,
-  Laboratories,
-  News,
-  Products,
-} from "../../../pages";
+import { About, Home, Products } from "../../../pages";
 import { Suspense } from "react";
 
 const RouteList = () => {
@@ -19,9 +12,6 @@ const RouteList = () => {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/about" element={<About />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/departments" element={<Departments />} />
-            <Route path="/laboratories" element={<Laboratories />} />
           </Routes>
         </Layout>
       </Suspense>
