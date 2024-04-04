@@ -34,7 +34,7 @@ const Navbar: FC = () => {
   }, []);
 
   return (
-    <nav className="fixed w-full bg-transparent  py-4 flex justify-between md:bg-gray-200 md:px-20">
+    <nav className="fixed w-full bg-transparent  py-4 flex justify-between md:bg-gray-200 md:px-20 z-50">
       <div className="flex items-center justify-between">
         <h3 className="text-xl font-bold text-gray-800 dark:text-white">
           Logo
