@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
         <div>
           <img
             src="./logo/biMaksLogo.svg"
-            className="bg-white p-2 w-52"
+            className="bg-white p-2 w-48"
             alt="logo"
           />
         </div>
