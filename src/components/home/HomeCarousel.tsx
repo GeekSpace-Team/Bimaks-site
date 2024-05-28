@@ -14,16 +14,37 @@ const HomeCarousel: FC = () => {
         modules={[Autoplay]}
         slidesPerView={3}
         spaceBetween={50}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          400: {
+            slidesPerView: 1,
+          },
+          639: {
+            slidesPerView: 1,
+          },
+          865: {
+            slidesPerView: 2,
+          },
+          1000: {
+            slidesPerView: 3,
+          },
+          1500: {
+            slidesPerView: 4,
+          },
+          1700: {
+            slidesPerView: 5,
+          },
+        }}
         autoplay={{
-          delay: 3000,
+          delay: 1000,
           pauseOnMouseEnter: true,
         }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
         style={{
           width: "100%",
         }}
-        speed={5000}
+        speed={500}
         loop={true}
       >
         <div className="flex w-full gap-5">

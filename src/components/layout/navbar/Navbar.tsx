@@ -6,6 +6,7 @@ import { navItems } from "../../../data/data";
 import { useTranslation } from "react-i18next";
 import { Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import Logo from "./Logo";
 
 const Navbar: FC = () => {
   const { t } = useTranslation();
@@ -34,11 +35,9 @@ const Navbar: FC = () => {
   }, []);
 
   return (
-    <nav className="fixed w-full bg-transparent dark:bg-gray-900 dark:text-white py-4 flex justify-between md:bg-gray-200 md:px-[10%] z-50">
+    <nav className="fixed w-full bg-transparent dark:bg-gray-900 dark:text-white py-4 flex justify-between md:bg-gray-50 md:px-[10%] z-50">
       <div className="flex items-center justify-between">
-        <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-          Logo
-        </h3>
+        <Logo />
 
         <button
           className="md:hidden rounded-md focus:outline-none "
