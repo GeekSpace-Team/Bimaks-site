@@ -11,6 +11,8 @@ const certificates = [
 
 interface CertificatesCardProps {
   certificate: string;
+  delay: number;
+  duration: number;
 }
 
 const fadeIn = (
@@ -39,11 +41,15 @@ const fadeIn = (
   };
 };
 
-const CertificatesCard: FC<CertificatesCardProps> = ({ certificate }) => {
+const CertificatesCard: FC<CertificatesCardProps> = ({
+  certificate,
+  delay,
+  duration,
+}) => {
   return (
     <Tilt className="xs:w-[250px] w-full">
       <motion.div
-        variants={fadeIn("right", "spring", 0.1, 1)}
+        variants={fadeIn("left", "spring", delay, duration)}
         initial="hidden"
         animate="show"
         className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
@@ -55,7 +61,6 @@ const CertificatesCard: FC<CertificatesCardProps> = ({ certificate }) => {
               alt="certificate"
               className="w-72 h-72 object-contain shadow-2xl transition-transform duration-300 ease-out group-hover:scale-110"
             />
-            {/* <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-25 transition-opacity duration-300"></div> */}
           </div>
         </div>
       </motion.div>
@@ -64,6 +69,13 @@ const CertificatesCard: FC<CertificatesCardProps> = ({ certificate }) => {
 };
 
 const Certificates: FC = () => {
+  const animationTimings = [
+    { delay: 0.8, duration: 1 },
+    { delay: 1.3, duration: 2.2 },
+    { delay: 2.5, duration: 3.4 },
+    { delay: 3.7, duration: 4.6 },
+  ];
+
   return (
     <div className="container mx-auto py-8">
       <p className="dark:text-gray-300 text-[40px] text-center mb-10">
@@ -72,13 +84,21 @@ const Certificates: FC = () => {
       <div className="flex flex-wrap justify-center">
         {certificates.slice(0, 3).map((cert, index) => (
           <div key={index} className="w-full sm:w-1/3 p-4">
-            <CertificatesCard certificate={cert} />
+            <CertificatesCard
+              certificate={cert}
+              delay={animationTimings[index].delay}
+              duration={animationTimings[index].duration}
+            />
           </div>
         ))}
       </div>
       <div className="flex justify-center mt-8">
         <div className="w-full sm:w-1/3 p-4">
-          <CertificatesCard certificate={certificates[3]} />
+          <CertificatesCard
+            certificate={certificates[3]}
+            delay={animationTimings[3].delay}
+            duration={animationTimings[3].duration}
+          />
         </div>
       </div>
     </div>

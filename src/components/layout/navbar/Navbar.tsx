@@ -14,6 +14,7 @@ const Navbar: FC = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  console.log(isScrolled);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import Contact from "../../contact/Contact";
 
 const FirstItem: FC = () => {
