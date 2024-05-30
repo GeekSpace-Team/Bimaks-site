@@ -12,7 +12,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       <div className="flex min-w-full flex-auto min-h-screen">
         <div className="flex flex-col w-full">
           <Navbar />
-          <div className="pl-[10%] pr-[10%] pt-[3.5%]">{children}</div>
+          <div className=" mt-[3%] pt-[3.5%]">{children}</div>
           <Footer />
         </div>
       </div>

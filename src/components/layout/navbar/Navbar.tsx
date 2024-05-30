@@ -7,14 +7,13 @@ import { useTranslation } from "react-i18next";
 import { Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "./Logo";
+import Header from "../Header";
 
 const Navbar: FC = () => {
   const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  console.log(isScrolled);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -37,62 +36,88 @@ const Navbar: FC = () => {
   }, []);
 
   return (
-    <nav className="fixed w-full bg-transparent dark:bg-gray-900 dark:text-white py-4 flex justify-between md:bg-gray-50 md:px-[10%] z-50">
-      <div className="flex items-center justify-between">
-        <Logo />
-
-        <button
-          className="md:hidden rounded-md focus:outline-none "
-          onClick={() => setIsMenuOpen(true)}
+    <>
+      <Header />
+      <div>
+        <nav
+          className={`fixed w-full dark:text-white py-4 flex justify-between md:px-[10%] z-50 transition-all duration-300 ${
+            isScrolled
+              ? "bg-white dark:bg-gray-900 shadow-md top-0"
+              : "bg-transparent dark:bg-gray-900"
+          }`}
         >
-          <MenuIcon className="dark:text-gray-500" />
-        </button>
-      </div>
+          <div className="flex items-center justify-between">
+            <Logo />
 
-      <Drawer
-        anchor="right"
-        open={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-        className="h-screen"
-      >
-        <List
-          sx={{
-            width: 200,
-          }}
-          className="dark:bg-gray-700 dark:text-white   h-screen flex flex-col "
-        >
-          {navItems.map((item, i) => (
-            <ListItem
-              sx={{
-                pl: 5,
-              }}
-              key={i}
-              button
-              component={Link}
-              to={item.path}
+            <button
+              className="md:hidden rounded-md focus:outline-none "
+              onClick={() => setIsMenuOpen(true)}
             >
-              <ListItemText primary={t(item.title)} />
-            </ListItem>
-          ))}
-          <hr />
-          <hr />
-          <div className="flex mt-5 justify-around">
+              <MenuIcon className="dark:text-gray-500" />
+            </button>
+          </div>
+
+          <Drawer
+            anchor="right"
+            open={isMenuOpen}
+            onClose={() => setIsMenuOpen(false)}
+            className="h-screen"
+          >
+            <List
+              sx={{
+                width: 200,
+              }}
+              className="dark:bg-gray-700 dark:text-white h-screen flex flex-col"
+            >
+              {navItems.map((item, i) => (
+                <ListItem
+                  sx={{
+                    pl: 5,
+                  }}
+                  key={i}
+                  button
+                  component={Link}
+                  to={item.path}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <ListItemText
+                    primary={t(item.title)}
+                    primaryTypographyProps={{
+                      className:
+                        location.pathname === item.path
+                          ? "font-bold underline"
+                          : "",
+                    }}
+                  />
+                </ListItem>
+              ))}
+              <hr />
+              <hr />
+              <div className="flex mt-5 justify-around">
+                <Language />
+                <Toggle />
+              </div>
+            </List>
+          </Drawer>
+
+          <div className="hidden md:flex items-center justify-between gap-4 md:gap-8">
+            {navItems.map((item, i) => (
+              <Link
+                key={i}
+                to={item.path}
+                className={`hover:underline ${
+                  location.pathname === item.path ? "font-bold underline" : ""
+                }`}
+              >
+                {t(item.title)}
+              </Link>
+            ))}
             <Language />
             <Toggle />
           </div>
-        </List>
-      </Drawer>
-
-      <div className="hidden md:flex items-center justify-between gap-4 md:gap-8">
-        {navItems.map((item, i) => (
-          <Link key={i} to={item.path} className="hover:underline">
-            {t(item.title)}
-          </Link>
-        ))}
-        <Language />
-        <Toggle />
+        </nav>
       </div>
-    </nav>
+    </>
   );
 };
 

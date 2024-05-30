@@ -9,13 +9,19 @@ import Events from "../../components/home/Events";
 const Home: FC = () => {
   return (
     <div>
-      <HomeCarousel />
-      <DownloadBook />
-      <PDFViewer>
-        <MyDocument />
-      </PDFViewer>
-      <Certificates />
-      <Events />
+      <div
+        className="h-screen w-full bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/i (3).webp')" }}
+      ></div>
+      <div className="pl-[10%] pr-[10%]">
+        <HomeCarousel />
+        <DownloadBook />
+        <PDFViewer>
+          <MyDocument />
+        </PDFViewer>
+        <Certificates />
+        <Events />
+      </div>
     </div>
   );
 };
