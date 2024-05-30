@@ -4,6 +4,8 @@ import { About, Home, Products } from "../../../pages";
 import { Suspense } from "react";
 import FirstComponent from "../../home/first/FirstComponent";
 import FirstItem from "../../home/first/FirstItem";
+import EventsMore from "../../home/EventsMore";
+import Contact from "../../../pages/contact/Contact";
 
 const RouteList = () => {
   return (
@@ -16,6 +18,8 @@ const RouteList = () => {
             <Route path="/about" element={<About />} />
             <Route path="/first" element={<FirstComponent />} />
             <Route path="/firstCom" element={<FirstItem />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/events/:id" element={<EventsMore />} />
           </Routes>
         </Layout>
       </Suspense>
