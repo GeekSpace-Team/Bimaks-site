@@ -17,6 +17,11 @@ export const navItems = [
   },
 
   {
+    title: "Technical Solutions",
+    path: "/technical-solutions",
+  },
+
+  {
     title: "Contact Us",
     path: "/contact",
   },

@@ -8,6 +8,7 @@ import EventsMore from "../../home/EventsMore";
 import Contact from "../../../pages/contact/Contact";
 import ProductList from "../../../pages/products/ProductList";
 import ProductFullInfo from "../../../pages/products/ProductFullInfo";
+import TechnicalSolutions from "../../../pages/solutions/TechnicalSolutions";
 
 const RouteList = () => {
   return (
@@ -19,6 +20,10 @@ const RouteList = () => {
             <Route path="/products" element={<Products />} />
             <Route path="/about" element={<About />} />
             <Route path="/first" element={<FirstComponent />} />
+            <Route
+              path="/technical-solutions"
+              element={<TechnicalSolutions />}
+            />
             <Route path="/firstCom" element={<FirstItem />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/events/:id" element={<EventsMore />} />
