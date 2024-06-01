@@ -94,7 +94,7 @@ const Navbar: FC = () => {
               <hr />
               <hr />
               <div className="flex mt-5 justify-around">
-                <Language />
+                {isScrolled && <Language />}
                 <Toggle />
               </div>
             </List>
@@ -112,7 +112,7 @@ const Navbar: FC = () => {
                 {t(item.title)}
               </Link>
             ))}
-            <Language />
+            {isScrolled && <Language />}
             <Toggle />
           </div>
         </nav>

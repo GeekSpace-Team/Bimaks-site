@@ -58,7 +58,7 @@ const HomeCarousel: FC = () => {
                   </div>
                   <button
                     className="bg-blue-500 px-4 py-2 w-full text-white hover:bg-blue-600 rounded-[6px]"
-                    onClick={() => navigate(item.path)}
+                    onClick={() => navigate(`/products/${item.id}`)}
                   >
                     More
                   </button>
