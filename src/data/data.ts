@@ -28,42 +28,32 @@ export const navItems = [
 ];
 
 export const homeItems = [
-  { id: 1, path: "/first", title: "Title 1", pic: "./images/Kurumsal.png" },
+  {
+    id: 1,
+    path: "/first",
+    title: "products.firstTitle",
+    pic: "./images/Reverse.jpeg",
+  },
 
   {
     id: 2,
     path: "/second",
-    title: "Title 2",
-    pic: "./images/atiksu-aritma02.jpeg",
-  },
-
-  { id: 3, path: "/third", title: "Title 3", pic: "./images/tersosmoz01.jpeg" },
-
-  { id: 4, path: "/fourth", title: "Title 4", pic: "./images/Kurumsal.png" },
-
-  {
-    id: 5,
-    path: "/fifth",
-    title: "Title 5",
-    pic: "./images/atiksu-aritma02.jpeg",
-  },
-
-  { id: 6, path: "/sixth", title: "Title 6", pic: "./images/tersosmoz01.jpeg" },
-
-  { id: 7, path: "/seventh", title: "Title 7", pic: "./images/Kurumsal.png" },
-
-  {
-    id: 8,
-    path: "/eighth",
-    title: "Title 8",
-    pic: "./images/atiksu-aritma02.jpeg",
+    title: "products.secondTitle",
+    pic: "./images/Wastewater.jpeg",
   },
 
   {
-    id: 9,
-    path: "/nineth",
-    title: "Title 9",
-    pic: "./images/tersosmoz01.jpeg",
+    id: 3,
+    path: "/third",
+    title: "products.thirdTitle",
+    pic: "./images/IndustrialCleaning.jpeg",
+  },
+
+  {
+    id: 4,
+    path: "/fourth",
+    title: "products.fourthTitle",
+    pic: "./images/Bolier water.jpeg",
   },
 ];
 

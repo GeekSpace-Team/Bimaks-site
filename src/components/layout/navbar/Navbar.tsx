@@ -47,8 +47,11 @@ const Navbar: FC = () => {
           }`}
         >
           <div className="flex items-center justify-between">
-            <Logo />
-
+            {location.pathname === "/" ? (
+              <>{isScrolled && <Logo />}</>
+            ) : (
+              <Logo />
+            )}
             <button
               className="md:hidden rounded-md focus:outline-none "
               onClick={() => setIsMenuOpen(true)}

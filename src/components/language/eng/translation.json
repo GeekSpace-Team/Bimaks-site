@@ -3,5 +3,11 @@
     "home": "Home",
     "about": "About",
     "products": "Products"
+  },
+  "products": {
+    "firstTitle": "REVERSE OSMOSIS PRODUCT",
+    "secondTitle": "Boiler Water Treatment",
+    "thirdTitle": "Waste Water Treatment",
+    "fourthTitle": "Cleaning Products"
   }
 }
