@@ -1,5 +1,5 @@
 import { FC } from "react";
-import ProductGroups from "../../components/product/ProductGroups";
+import HomeProducts from "../../components/home/HomeProducts";
 
 const Products: FC = () => {
   return (
@@ -9,7 +9,7 @@ const Products: FC = () => {
         style={{ backgroundImage: "url('/images/i (3).webp')" }}
       ></div>
       <div className="mt-14 mb-24 pl-[10%] pr-[10%] ">
-        <ProductGroups />
+        <HomeProducts />
       </div>
     </>
   );

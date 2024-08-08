@@ -1,0 +1,1 @@
+import{j as s}from"./index-ECVRS5b2.js";import{H as e}from"./HomeProducts-hylRMJ1P.js";const m=()=>s.jsxs(s.Fragment,{children:[s.jsx("div",{className:"h-screen w-full bg-cover bg-center",style:{backgroundImage:"url('/images/i (3).webp')"}}),s.jsx("div",{className:"mt-14 mb-24 pl-[10%] pr-[10%] ",children:s.jsx(e,{})})]});export{m as default};
