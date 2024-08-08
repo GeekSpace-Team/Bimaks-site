@@ -1,12 +1,8 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  FaPhone,
-  FaEnvelope,
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { TiSocialSkypeOutline } from "react-icons/ti";
+import { PiTelegramLogoDuotone } from "react-icons/pi";
 
 const Header: FC = () => {
   const { i18n } = useTranslation();
@@ -21,19 +17,20 @@ const Header: FC = () => {
         <div className="flex items-center space-x-2">
           <FaPhone className="text-gray-500 dark:text-white  hover:text-gray-700" />
           <span className="text-gray-700 dark:text-white  hover:text-gray-900">
-            +123456789
+            +993 64550330
           </span>
         </div>
         <div className="flex items-center space-x-2">
           <FaEnvelope className="text-gray-500 dark:text-white  hover:text-gray-700" />
           <span className="text-gray-700 dark:text-white  hover:text-gray-900">
-            email@example.com
+            info@bimakstm.com
           </span>
         </div>
       </div>
       <div className="flex items-center space-x-6">
-        <FaFacebook className="text-gray-500 dark:text-white  hover:text-gray-700" />
-        <FaTwitter className="text-gray-500 dark:text-white  hover:text-gray-700" />
+        <TiSocialSkypeOutline className="text-gray-500 dark:text-white  hover:text-gray-700" />
+        <FaWhatsapp className="text-gray-500 dark:text-white  hover:text-gray-700" />
+        <PiTelegramLogoDuotone className="text-gray-500 dark:text-white  hover:text-gray-700" />
         <FaInstagram className="text-gray-500 dark:text-white  hover:text-gray-700" />
         <div className="flex items-center pl-8 gap-5">
           <img
