@@ -1,28 +1,30 @@
 import { FC } from "react";
 import { aboutText } from "../../data/data";
 import MissionAndVision from "./MissionAndVision";
+import { useTranslation } from "react-i18next";
 
 const AboutUs: FC = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="flex flex-col gap-8">
-        <h1 className="text-3xl font-bold dark:text-gray-100">About Us</h1>
+        <h1 className="text-3xl font-bold dark:text-gray-100">
+          {t("nav.about")}
+        </h1>
         {aboutText.map((item) => (
           <p className="leading-9 dark:text-gray-100" key={`about_usText`}>
-            {item}
+            {t(item)}
           </p>
         ))}
       </div>
       <MissionAndVision />
       <div className="flex flex-col gap-8 mt-10">
         <h1 className="text-3xl font-bold leading-[50px] dark:text-gray-100">
-          Quality, Environment and Occupational Health & Safety Policy
+          {t("about.safetyPolicy")}
         </h1>
-        {aboutText.map((item) => (
-          <p className="leading-9 dark:text-gray-100" key={`about_usText`}>
-            {item}
-          </p>
-        ))}
+        <p className="leading-9 dark:text-gray-100" key={`about_usText`}>
+          {t("about.aboutText3")}
+        </p>
       </div>
     </>
   );

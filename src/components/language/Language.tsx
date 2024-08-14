@@ -18,7 +18,7 @@ const Language: FC = () => {
       >
         <option value="en">EN</option>
         <option value="ru">Ру</option>
-        <option value="tm">TM</option>
+        {/* <option value="tm">TM</option> */}
       </select>
     </div>
   );

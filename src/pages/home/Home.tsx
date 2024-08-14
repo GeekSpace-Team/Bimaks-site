@@ -1,41 +1,27 @@
-import { FC, useState, useEffect } from "react";
-import MyDocument from "../../components/home/MyDocument";
-import { PDFViewer } from "@react-pdf/renderer";
-import Certificates from "../certificates/Certificates";
+import { FC } from "react";
+// import MyDocument from "../../components/home/MyDocument";
+// import { PDFViewer } from "@react-pdf/renderer";
+// import Certificates from "../certificates/Certificates";
 // import Events from "../../components/home/Events";
 import HomeHero from "../../components/home/HomeHero";
 import HomeProducts from "../../components/home/HomeProducts";
-import HomeAbout from "../../components/home/HomeAbout";
+import HomeAbout from "./HomeAbout";
+import HomeCertificates from "./HomeCertificates";
 
 const Home: FC = () => {
-  const [showHero, setShowHero] = useState(true);
-
-  const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setShowHero(false);
-    } else {
-      setShowHero(true);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <div>
-      {showHero && <HomeHero />}
+      <HomeHero />
       <div className="px-[10%]">
         <HomeProducts />
-        <HomeAbout />
-        <PDFViewer>
+        {/* <PDFViewer>
           <MyDocument />
-        </PDFViewer>
-        <Certificates />
+        </PDFViewer> */}
+        <HomeAbout />
+        {/* <Certificates /> */}
         {/* <Events /> */}
+
+        <HomeCertificates />
       </div>
     </div>
   );

@@ -49,13 +49,13 @@ const Header: FC = () => {
             className="hover:opacity-80 cursor-pointer"
             onClick={() => changeLanguage("en")}
           />
-          <img
-            src="/images/us.svg"
+          {/* <img
+            src="/images/Flag_of_Turkmenistan 1.png"
             alt="US"
             width={20}
             className="hover:opacity-80 cursor-pointer"
             onClick={() => changeLanguage("tm")}
-          />
+          /> */}
         </div>
       </div>
     </div>

@@ -2,17 +2,19 @@ import React from "react";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { TiSocialSkypeOutline } from "react-icons/ti";
 import { PiTelegramLogoDuotone } from "react-icons/pi";
+import FooterLogo from "./FooterLogo";
 
 const Footer: React.FC = () => {
   return (
     <section>
       <div className="w-full justify-between flex pl-[10%] pr-[10%] pt-[3%] ">
         <div>
-          <img
+          {/* <img
             src="./logo/biMaksLogo.svg"
             className="bg-white p-2 w-48"
             alt="logo"
-          />
+          /> */}
+          <FooterLogo />
         </div>
 
         <div className="flex flex-col gap-2">

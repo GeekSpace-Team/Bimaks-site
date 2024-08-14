@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../utils/motion";
+import axios from "axios";
 
 const Contact: FC = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ const Contact: FC = () => {
     message: "",
   });
 
+  const [notification, setNotification] = useState<string | null>(null);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -18,10 +21,36 @@ const Contact: FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+
+    try {
+      await axios.post("http://95.85.121.153:6427/send-mail", {
+        to_mail: "info@bimakstm.com",
+        username: formData.fullname,
+        email: formData.email,
+        subject: formData.theme,
+        text: formData.message,
+        phone: "",
+      });
+      setFormData({
+        fullname: "",
+        email: "",
+        theme: "",
+        message: "",
+      });
+
+      setNotification("Message sent successfully!!!");
+    } catch (error) {
+      console.log("Error sending message: " + error);
+      setNotification("Failed to send message");
+    }
+
+    setTimeout(() => {
+      setNotification(null);
+    }, 5000);
   };
+
   return (
     <div className="relative">
       <div className="absolute top-[20%] right-[5%] z-10 w-full">
@@ -114,6 +143,11 @@ const Contact: FC = () => {
           </div>
         </motion.form>
       </div>
+      {notification && (
+        <div className="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-md shadow-xl">
+          {notification}
+        </div>
+      )}
     </div>
   );
 };

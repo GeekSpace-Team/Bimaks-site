@@ -1,13 +1,67 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import axios from "axios";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 
 const ContactForm: FC = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [notification, setNotification] = useState<string | null>(null);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const { name, email, subject, message } = formData;
+
+    try {
+      await axios.post("http://95.85.121.153:6427/send-mail", {
+        to_mail: "sh.alyyew2019@gmail.com",
+        username: name,
+        email: email,
+        subject: subject,
+        text: message,
+        phone: "", // Add phone if needed
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+
+      setNotification("Message sent successfully!");
+
+      setTimeout(() => {
+        setNotification(null);
+      }, 5000);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setNotification("Failed to send message.");
+      setTimeout(() => {
+        setNotification(null);
+      }, 5000);
+    }
+  };
+
   return (
     <div className="mt-10 flex flex-col md:flex-row">
       {/* Left Side: Form */}
       <div className="w-full md:w-1/2 p-4">
         <h2 className="text-xl font-bold mb-4">Write Us</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
               htmlFor="name"
@@ -19,6 +73,8 @@ const ContactForm: FC = () => {
               type="text"
               id="name"
               name="name"
+              value={formData.name}
+              onChange={handleChange}
               className="border border-gray-400 rounded-md p-2 w-full"
               required
             />
@@ -34,6 +90,8 @@ const ContactForm: FC = () => {
               type="email"
               id="email"
               name="email"
+              value={formData.email}
+              onChange={handleChange}
               className="border border-gray-400 rounded-md p-2 w-full"
               required
             />
@@ -49,6 +107,8 @@ const ContactForm: FC = () => {
               type="text"
               id="subject"
               name="subject"
+              value={formData.subject}
+              onChange={handleChange}
               className="border border-gray-400 rounded-md p-2 w-full"
               required
             />
@@ -63,7 +123,9 @@ const ContactForm: FC = () => {
             <textarea
               id="message"
               name="message"
-              rows={1}
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
               className="border border-gray-400 rounded-md p-2 w-full"
               required
             ></textarea>
@@ -75,6 +137,11 @@ const ContactForm: FC = () => {
             Submit
           </button>
         </form>
+        {notification && (
+          <div className="fixed top-4 right-4 bg-green-500 text-white p-2 rounded-md shadow-md">
+            {notification}
+          </div>
+        )}
       </div>
       {/* Right Side: Map */}
       <div className="w-full md:w-1/2 p-4">
