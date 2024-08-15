@@ -8,9 +8,8 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Replace with actual authentication logic
-    if (username === "admin" && password === "admin") {
-      localStorage.setItem("admin", "true");
+    if (username === "admin" && password === "bimaks123!") {
+      localStorage.setItem("adminToken", "bimaksAdminToken");
       navigate("/admin/dashboard");
     } else {
       alert("Invalid credentials");

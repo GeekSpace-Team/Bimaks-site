@@ -1,26 +1,32 @@
 import React, { useEffect, useState } from "react";
 
+const siteId = "site1";
+
 const Dashboard: React.FC = () => {
   const [visitorCount, setVisitorCount] = useState<number>(0);
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   useEffect(() => {
-    // Fetch visitor count from the backend
-    fetch("http://localhost:3001/api/visitor-count")
+    const token = localStorage.getItem("adminToken");
+    setIsAdmin(token === "bimaksAdminToken");
+
+    fetch(`http://95.85.121.153:3001/api/visitor-count/${siteId}`)
       .then((response) => response.json())
       .then((data) => setVisitorCount(data.count))
       .catch((error) => console.error("Error fetching visitor count:", error));
 
-    // Increment visitor count
-    fetch("http://localhost:3001/api/increment-visitor-count", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((response) => response.json())
-      .then((data) => setVisitorCount(data.count))
-      .catch((error) =>
-        console.error("Error incrementing visitor count:", error)
-      );
-  }, []);
+    if (!isAdmin) {
+      fetch("http://95.85.121.153:3001/api/increment-visitor-count", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((response) => response.json())
+        .then((data) => setVisitorCount(data.count))
+        .catch((error) =>
+          console.error("Error incrementing visitor count:", error)
+        );
+    }
+  }, [isAdmin]);
 
   return (
     <div className="p-8 bg-gray-100 min-h-screen">
