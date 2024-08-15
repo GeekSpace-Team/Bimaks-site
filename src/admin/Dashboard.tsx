@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-const siteId = "site1";
+import axios from "axios";
 
 const Dashboard: React.FC = () => {
   const [visitorCount, setVisitorCount] = useState<number>(0);
@@ -10,18 +9,25 @@ const Dashboard: React.FC = () => {
     const token = localStorage.getItem("adminToken");
     setIsAdmin(token === "bimaksAdminToken");
 
-    fetch(`http://95.85.121.153:3001/api/visitor-count/${siteId}`)
-      .then((response) => response.json())
-      .then((data) => setVisitorCount(data.count))
+    // Fetch visitor count
+    axios
+      .get("http://95.85.121.153:3001/api/visitor-count")
+      .then((response) => setVisitorCount(response.data.count))
       .catch((error) => console.error("Error fetching visitor count:", error));
 
+    // Increment visitor count if not admin
     if (!isAdmin) {
-      fetch("http://95.85.121.153:3001/api/increment-visitor-count", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      })
-        .then((response) => response.json())
-        .then((data) => setVisitorCount(data.count))
+      axios
+        .post(
+          "http://95.85.121.153:3001/api/increment-visitor-count",
+          {},
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => setVisitorCount(response.data.count))
         .catch((error) =>
           console.error("Error incrementing visitor count:", error)
         );
