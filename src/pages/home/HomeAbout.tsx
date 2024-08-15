@@ -13,7 +13,11 @@ const HomeAbout: FC = () => {
   return (
     <div className="flex w-full justify-between px-[10%] mt-32 mb-32 py-[5%]">
       <div className="w-[30%] flex items-center ">
-        <img src="/logo/logo-1.png" alt="Logo" className="w-full h-24" />
+        <img
+          src="/logo/photo_2024-08-15_17-14-45.jpg"
+          alt="Logo"
+          className="w-full h-56"
+        />
       </div>
       <div className="w-[60%] dark:text-white flex flex-col ">
         <h2 className="text-3xl  font-bold mb-4">{t("home.awtTitle")}</h2>

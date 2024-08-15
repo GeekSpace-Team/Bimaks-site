@@ -14,18 +14,18 @@ const HomeCertificates: FC = () => {
   const certificates = [
     {
       default: "/images/Halal Certificate.be35dd6e (1).png",
-      hover: "/images/halal.jpg",
+      hover: "/logo/photo_2024-08-15_17-19-40.jpg",
     },
     {
       default: "/images/ISO 9001.8661a8d0.png",
       hover: "/images/iso 9.jpg",
     },
     {
-      default: "/images/ISO 14001.086798fe.png",
-      hover: "/images/iso 14.jpg",
+      default: "/logo/photo_2024-08-15_17-19-02.jpg",
+      hover: "/logo/photo_2024-08-15_17-19-46.jpg",
     },
     {
-      default: "/images/nfs.320f2461.png",
+      default: "/logo/photo_2024-08-15_17-18-54.jpg",
       hover: "/images/nsf.jpg",
     },
   ];
