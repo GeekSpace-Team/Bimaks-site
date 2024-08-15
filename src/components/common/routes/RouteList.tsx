@@ -9,6 +9,8 @@ import ProductList from "../../../pages/products/ProductList";
 import ProductFullInfo from "../../../pages/products/ProductFullInfo";
 import TechnicalSolutions from "../../../pages/solutions/TechnicalSolutions";
 import "../../../assets/css/index.css";
+import Login from "../../../admin/Login";
+import Dashboard from "../../../admin/Dashboard";
 
 const RouteList = () => {
   return (
@@ -28,6 +30,8 @@ const RouteList = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/products/:groupId" element={<ProductList />} />
             <Route path="/product-info/:id" element={<ProductFullInfo />} />
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
           </Routes>
         </Layout>
       </Suspense>
