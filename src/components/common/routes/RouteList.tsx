@@ -1,3 +1,6 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import useSWR, { mutate } from "swr";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "../../layout/Layout";
 import { About, Home, Products } from "../../../pages";
@@ -12,7 +15,48 @@ import "../../../assets/css/index.css";
 import Login from "../../../admin/Login";
 import Dashboard from "../../../admin/Dashboard";
 
-const RouteList = () => {
+// Fetcher function for SWR
+const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+
+const RouteList: React.FC = () => {
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
+
+  // SWR hooks to fetch visitor count
+  const { data: visitorData, error } = useSWR(
+    "http://95.85.121.153:3001/api/visitor-count",
+    fetcher
+  );
+
+  useEffect(() => {
+    // Check if the user is an admin
+    const token = localStorage.getItem("adminToken");
+    setIsAdmin(token === "bimaksAdminToken");
+
+    // Increment visitor count
+    if (!isAdmin) {
+      axios
+        .post(
+          "http://95.85.121.153:3001/api/increment-visitor-count",
+          {},
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then(() => {
+          // Trigger a revalidation of the visitor count
+          mutate("http://95.85.121.153:3001/api/visitor-count");
+        })
+        .catch((error) =>
+          console.error("Error incrementing visitor count:", error)
+        );
+    }
+  }, [isAdmin]);
+
+  if (error) return <div>Failed to load visitor count</div>;
+  if (!visitorData) return <div>Loading...</div>;
+
   return (
     <BrowserRouter>
       <Suspense fallback={"LOADING..."}>
