@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from "react";
 
 const Dashboard: React.FC = () => {
-  const [visitorCount, setVisitorCount] = useState(0);
+  const [visitorCount, setVisitorCount] = useState<number>(0);
 
   useEffect(() => {
     // Fetch visitor count from the backend
-    fetch("/api/visitor-count")
+    fetch("http://localhost:3001/api/visitor-count")
       .then((response) => response.json())
       .then((data) => setVisitorCount(data.count))
       .catch((error) => console.error("Error fetching visitor count:", error));
+
+    // Increment visitor count
+    fetch("http://localhost:3001/api/increment-visitor-count", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => setVisitorCount(data.count))
+      .catch((error) =>
+        console.error("Error incrementing visitor count:", error)
+      );
   }, []);
 
   return (
