@@ -71,13 +71,13 @@ const ProductFullInfo: FC = () => {
             {getTitleByLanguage(product)}
           </h1>
           <div className="flex gap-20">
-            <img
+            {/* <img
               src={product.image}
               className="w-1/4"
               alt={getTitleByLanguage(product)}
-            />
+            /> */}
             <div className="flex flex-col gap-10">
-              <h2 className="font-bold">GENERAL DESCRIPTION</h2>
+              {/* <h2 className="font-bold">GENERAL DESCRIPTION</h2> */}
               <p>{getShortDescriptionByLanguage(product)}</p>
             </div>
           </div>
