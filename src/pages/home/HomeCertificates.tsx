@@ -39,23 +39,34 @@ const HomeCertificates: FC = () => {
         {certificates.map((cert, index) => (
           <div
             key={index}
-            className="relative w-full h-40 sm:h-48 md:h-56 lg:h-64 overflow-hidden rounded-lg"
+            className={`relative w-full overflow-hidden rounded-lg ${
+              index === certificates.length - 1 ? "mt-8" : "mt-0"
+            }`}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
           >
-            <img
-              src={cert.hover}
-              alt={`Certificate ${index}`}
-              className={`object-contain w-56 h-[240px] transition-opacity duration-700 ease-in-out ${
-                hoveredIndex === index ? "opacity-0" : "opacity-100"
+            <div
+              className={`transition-opacity duration-700 ease-in-out ${
+                index === certificates.length - 1 ? "h-[140px]" : "h-[200px]"
               }`}
-            />
+            >
+              <img
+                src={cert.hover}
+                alt={`Certificate ${index}`}
+                className={`object-contain w-full h-full transition-opacity duration-700 ease-in-out ${
+                  hoveredIndex === index ? "opacity-0" : "opacity-100"
+                }`}
+              />
+            </div>
             <img
               src={cert.default}
               alt={`Certificate ${index}`}
-              className={`absolute top-0 left-0 object-contain w-56 h-[240px] transition-opacity duration-700 ease-in-out shadow-lg ${
+              className={`absolute top-0 left-0 object-contain w-full transition-opacity duration-700 ease-in-out ${
                 hoveredIndex === index ? "opacity-100" : "opacity-0"
               }`}
+              style={{
+                height: index === certificates.length - 1 ? "150px" : "200px",
+              }}
             />
           </div>
         ))}

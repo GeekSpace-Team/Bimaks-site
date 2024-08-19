@@ -4,8 +4,8 @@ import { FC } from "react";
 const Logo: FC = () => {
   return (
     <div>
-      <h1 className="text-blue-500 text-2xl">bimaks</h1>
-      <p className="text-blue-500 text-[11px] mt-[-6px]">TURKMENISTAN</p>
+      <h1 className="text-blue-500 text-3xl">bimaks</h1>
+      <p className="text-blue-500 text-[13px] mt-[-6px]">TURKMENISTAN</p>
     </div>
   );
 };
