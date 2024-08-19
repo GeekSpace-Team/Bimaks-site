@@ -47,6 +47,19 @@ const ProductList: FC = () => {
   const getTitleByLanguage = (item: ProductItem) => {
     switch (i18n.language) {
       case "en":
+        return item.title_en;
+      case "ru":
+        return item.title_ru;
+      case "tm":
+        return item.title_tm;
+      default:
+        return item.title_ru;
+    }
+  };
+
+  const getSubtitleByLanguage = (item: ProductItem) => {
+    switch (i18n.language) {
+      case "en":
         return item.short_en;
       case "ru":
         return item.short_ru;
@@ -72,14 +85,14 @@ const ProductList: FC = () => {
 
   return (
     <div className="px-[10%] my-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      <div className="grid h-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {products.map((product) => (
           <div
             key={product.id}
             onClick={() =>
               navigate(`/product-info/${product.id}`, { state: { product } })
             }
-            className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+            className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer relative"
           >
             <div className="relative">
               <img
@@ -88,13 +101,20 @@ const ProductList: FC = () => {
                 className="w-full h-48 object-cover opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
-            <div className="p-5">
+            <div className="p-5 mb-14">
+              {/* Add bottom padding to ensure space for button */}
               <h2 className="text-xl text-center font-bold mb-2">
                 {getTitleByLanguage(product)}
               </h2>
-              <button className="mt-4 bg-blue-500 w-full text-white py-2 px-4 rounded-2xl hover:bg-blue-600 transition-colors duration-300">
-                {getProductDetailByLanguage()}
-              </button>
+              <p className="text-center text-[14px]">
+                {getSubtitleByLanguage(product)}
+              </p>
+              <div className="absolute bottom-5 left-0 right-0 mx-4">
+                {/* Positioned at the bottom with margin */}
+                <button className="bg-blue-500 text-white py-2 px-4 rounded-2xl hover:bg-blue-600 transition-colors duration-300 w-full">
+                  {getProductDetailByLanguage()}
+                </button>
+              </div>
             </div>
           </div>
         ))}
