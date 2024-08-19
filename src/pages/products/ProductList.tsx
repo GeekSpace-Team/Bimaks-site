@@ -8,6 +8,9 @@ interface ProductItem {
   title_tm: string;
   title_en: string;
   title_ru: string;
+  short_tm: string;
+  short_en: string;
+  short_ru: string;
   image: string;
 }
 
@@ -44,13 +47,26 @@ const ProductList: FC = () => {
   const getTitleByLanguage = (item: ProductItem) => {
     switch (i18n.language) {
       case "en":
-        return item.title_en;
+        return item.short_en;
       case "ru":
-        return item.title_ru;
+        return item.short_ru;
       case "tm":
-        return item.title_tm;
+        return item.short_tm;
       default:
-        return item.title_en;
+        return item.short_ru;
+    }
+  };
+
+  const getProductDetailByLanguage = () => {
+    switch (i18n.language) {
+      case "en":
+        return "Product Detail";
+      case "ru":
+        return "Детали продукта";
+      case "tm":
+        return "Product Detail";
+      default:
+        return "Детали продукта";
     }
   };
 
@@ -77,7 +93,7 @@ const ProductList: FC = () => {
                 {getTitleByLanguage(product)}
               </h2>
               <button className="mt-4 bg-blue-500 w-full text-white py-2 px-4 rounded-2xl hover:bg-blue-600 transition-colors duration-300">
-                Buy Now
+                {getProductDetailByLanguage()}
               </button>
             </div>
           </div>
