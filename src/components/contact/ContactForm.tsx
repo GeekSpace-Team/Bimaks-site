@@ -1,8 +1,11 @@
 import { FC, useState } from "react";
 import axios from "axios";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
+import { useTranslation } from "react-i18next";
 
 const ContactForm: FC = () => {
+  const { i18n } = useTranslation(); // Use i18n for language check
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -42,14 +45,22 @@ const ContactForm: FC = () => {
         message: "",
       });
 
-      setNotification("Message sent successfully!");
+      setNotification(
+        i18n.language === "ru"
+          ? "Сообщение успешно отправлено!"
+          : "Message sent successfully!"
+      );
 
       setTimeout(() => {
         setNotification(null);
       }, 5000);
     } catch (error) {
       console.error("Error sending message:", error);
-      setNotification("Failed to send message.");
+      setNotification(
+        i18n.language === "ru"
+          ? "Не удалось отправить сообщение."
+          : "Failed to send message."
+      );
       setTimeout(() => {
         setNotification(null);
       }, 5000);
@@ -60,14 +71,16 @@ const ContactForm: FC = () => {
     <div className="mt-10 flex flex-col md:flex-row">
       {/* Left Side: Form */}
       <div className="w-full md:w-1/2 p-4">
-        <h2 className="text-xl font-bold mb-4">Write Us</h2>
+        <h2 className="text-xl font-bold mb-4">
+          {i18n.language === "ru" ? "Напишите нам" : "Write Us"}
+        </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
               htmlFor="name"
               className="block text-gray-700 font-semibold mb-2"
             >
-              Name:
+              {i18n.language === "ru" ? "Имя" : "Name"}:
             </label>
             <input
               type="text"
@@ -84,7 +97,7 @@ const ContactForm: FC = () => {
               htmlFor="email"
               className="block text-gray-700 font-semibold mb-2"
             >
-              Email:
+              {i18n.language === "ru" ? "Электронная почта" : "Email"}:
             </label>
             <input
               type="email"
@@ -101,7 +114,7 @@ const ContactForm: FC = () => {
               htmlFor="subject"
               className="block text-gray-700 font-semibold mb-2"
             >
-              Subject
+              {i18n.language === "ru" ? "Тема" : "Subject"}:
             </label>
             <input
               type="text"
@@ -118,7 +131,7 @@ const ContactForm: FC = () => {
               htmlFor="message"
               className="block text-gray-700 font-semibold mb-2"
             >
-              Message:
+              {i18n.language === "ru" ? "Сообщение" : "Message"}:
             </label>
             <textarea
               id="message"
@@ -134,7 +147,7 @@ const ContactForm: FC = () => {
             type="submit"
             className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
           >
-            Submit
+            {i18n.language === "ru" ? "Отправить" : "Submit"}
           </button>
         </form>
         {notification && (

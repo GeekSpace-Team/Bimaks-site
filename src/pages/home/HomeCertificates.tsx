@@ -1,7 +1,9 @@
 import { FC, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const HomeCertificates: FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { i18n } = useTranslation();
 
   const handleMouseEnter = (index: number) => {
     setHoveredIndex(index);
@@ -33,7 +35,7 @@ const HomeCertificates: FC = () => {
   return (
     <>
       <p className="dark:text-gray-300 text-[40px] text-center mb-10">
-        Our Certificates
+        {i18n.language === "ru" ? "Наши Сертификаты" : "Our Certificates"}
       </p>
       <div className="grid grid-cols-1 mb-32 sm:grid-cols-2 md:grid-cols-4 gap-4 p-8">
         {certificates.map((cert, index) => (

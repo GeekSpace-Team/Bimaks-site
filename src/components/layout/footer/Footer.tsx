@@ -10,22 +10,28 @@ const Footer: React.FC = () => {
 
   return (
     <section>
-      <div className="w-full justify-between flex pl-[10%] pr-[10%] pt-[3%] ">
-        <div>
+      <div className="w-full flex flex-col md:grid md:grid-cols-3 md:gap-8 px-[5%] py-8">
+        <div className="flex justify-center md:justify-start">
           <FooterLogo />
         </div>
 
-        <div className="flex flex-col gap-2">
-          <h1 className="text-white text-2xl">{t("footer.contact")}</h1>
+        <div className="flex flex-col gap-2 md:gap-4 md:text-center md:col-span-1">
+          <h1 className="text-white text-xl md:text-2xl">
+            {t("footer.contact")}
+          </h1>
           <p className="text-white">{t("footer.phone")}: +993 64550330</p>
           <p className="text-white">{t("footer.email")}: info@bimakstm.com</p>
           <p className="text-white">{t("footer.fax")}: +993 64550330</p>
         </div>
-        <div className="flex flex-col gap-2">
-          <h1 className="text-white text-2xl">{t("footer.location")}</h1>
+
+        <div className="flex flex-col gap-2 md:gap-4 md:text-center md:col-span-1">
+          <h1 className="text-white text-xl md:text-2xl">
+            {t("footer.location")}
+          </h1>
           <p className="text-white">{t("footer.address")}</p>
         </div>
       </div>
+
       <div className="flex justify-center items-center gap-6 mt-10">
         <a
           href="https://facebook.com"
@@ -58,7 +64,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="air air1">
-        <div className="flex flex-col-reverse gap-3  items-center absolute bottom-3 w-full justify-end right-0 ">
+        <div className="flex flex-col-reverse gap-3 items-center absolute bottom-3 w-full justify-end right-0 ">
           <h1 className="text-xl">{t("footer.poweredBy")}</h1>
           <img src="/logo/GeekSpaceLogo.svg" alt="GeekSpaceLogo" />
         </div>

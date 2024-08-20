@@ -40,24 +40,39 @@ const Navbar: FC = () => {
       <Header />
       <div>
         <nav
-          className={`fixed w-full dark:text-white py-4 flex justify-between md:px-[10%] z-50 transition-all duration-300 ${
+          className={`fixed w-full dark:text-white py-4 flex justify-between items-center md:px-[10%] z-50 transition-all duration-300 ${
             isScrolled
               ? "bg-white dark:bg-gray-900 shadow-md top-0"
               : "bg-transparent dark:bg-gray-900"
           }`}
         >
-          <div className="flex items-center justify-between">
-            {location.pathname === "/" ? (
-              <>{isScrolled && <Logo />}</>
-            ) : (
-              <Logo />
-            )}
-            <button
-              className="md:hidden rounded-md focus:outline-none "
-              onClick={() => setIsMenuOpen(true)}
-            >
-              <MenuIcon className="dark:text-gray-500" />
-            </button>
+          <div className="flex items-center justify-between w-full px-4">
+            <Logo />
+            <div className="flex items-center">
+              <div className="hidden md:flex items-center justify-between gap-4 md:gap-8">
+                {navItems.map((item, i) => (
+                  <Link
+                    key={i}
+                    to={item.path}
+                    className={`hover:underline ${
+                      location.pathname === item.path
+                        ? "font-bold underline"
+                        : ""
+                    }`}
+                  >
+                    {t(item.title)}
+                  </Link>
+                ))}
+                {isScrolled && <Language />}
+                <Toggle />
+              </div>
+              <button
+                className="md:hidden rounded-md focus:outline-none"
+                onClick={() => setIsMenuOpen(true)}
+              >
+                <MenuIcon className="dark:text-gray-500" />
+              </button>
+            </div>
           </div>
 
           <Drawer
@@ -95,29 +110,12 @@ const Navbar: FC = () => {
                 </ListItem>
               ))}
               <hr />
-              <hr />
               <div className="flex mt-5 justify-around">
                 {isScrolled && <Language />}
                 <Toggle />
               </div>
             </List>
           </Drawer>
-
-          <div className="hidden md:flex items-center justify-between gap-4 md:gap-8">
-            {navItems.map((item, i) => (
-              <Link
-                key={i}
-                to={item.path}
-                className={`hover:underline ${
-                  location.pathname === item.path ? "font-bold underline" : ""
-                }`}
-              >
-                {t(item.title)}
-              </Link>
-            ))}
-            {isScrolled && <Language />}
-            <Toggle />
-          </div>
         </nav>
       </div>
     </>

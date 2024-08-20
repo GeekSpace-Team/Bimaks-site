@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { useLocation } from "react-router-dom";
-import Contact from "../../components/contact/Contact";
 import { useTranslation } from "react-i18next";
 
 interface ProductItem {
@@ -66,31 +65,30 @@ const ProductFullInfo: FC = () => {
   return (
     <div className="px-[10%] my-10 dark:text-white">
       <div className="flex flex-col lg:flex-row gap-10">
-        <div className="w-full lg:w-3/4">
+        <div className="w-full">
           <h1 className="text-2xl font-bold mb-5">
             {getTitleByLanguage(product)}
           </h1>
-          <div className="flex gap-20">
-            {/* <img
-              src={product.image}
-              className="w-1/4"
-              alt={getTitleByLanguage(product)}
-            /> */}
-            <div className="flex flex-col gap-10">
-              {/* <h2 className="font-bold">GENERAL DESCRIPTION</h2> */}
-              <p>{getShortDescriptionByLanguage(product)}</p>
+          <div className="flex gap-10">
+            <div className="flex flex-col gap-5 w-full">
+              {/* Uncomment the image section if needed */}
+              {/* <img
+                src={product.image}
+                className="w-full lg:w-1/2"
+                alt={getTitleByLanguage(product)}
+              /> */}
+              <p className="text-lg">
+                {getShortDescriptionByLanguage(product)}
+              </p>
             </div>
           </div>
-          <div className="my-12 flex flex-col gap-7">
+          <div className="my-12">
             <div
               dangerouslySetInnerHTML={{
                 __html: getDescriptionByLanguage(product),
               }}
             />
           </div>
-        </div>
-        <div className="w-full lg:w-1/3">
-          <Contact />
         </div>
       </div>
     </div>

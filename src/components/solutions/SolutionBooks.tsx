@@ -5,17 +5,8 @@ import { FaRegFilePdf } from "react-icons/fa";
 const SolutionBooks = () => {
   const { i18n } = useTranslation();
 
-  const download = () => {
-    switch (i18n.language) {
-      case "en":
-        return "Download";
-      case "ru":
-        return "Скачать";
-      case "tm":
-        return "Download";
-      default:
-        return "Download";
-    }
+  const download = (fileName: string) => {
+    window.open(`/books/${fileName}`, "_blank");
   };
 
   const roSystem = () => {
@@ -67,7 +58,7 @@ const SolutionBooks = () => {
         className="flex-shrink-0 lg:w-1/3 md:w-1/3 sm:w-1/2 xs:w-full p-4"
       >
         <div className="rounded-lg gap-5 p-6 flex flex-col justify-center items-center">
-          <div className="text-4xl bg-blue-500 w-20  flex items-center justify-center h-20 rounded-full text-white mb-4">
+          <div className="text-4xl bg-blue-500 w-20 flex items-center justify-center h-20 rounded-full text-white mb-4">
             <FaRegFilePdf />
           </div>
           <h2 className="text-lg font-bold text-center h-[70px]">
@@ -75,8 +66,11 @@ const SolutionBooks = () => {
           </h2>
         </div>
         <div className="flex justify-center">
-          <button className="text-blue-500  font-bold px-4 rounded-md">
-            {download()}
+          <button
+            className="text-blue-500 font-bold px-4 rounded-md"
+            onClick={() => download("checklist RO_ru.pdf")}
+          >
+            {i18n.language === "ru" ? "Скачать" : "Download"}
           </button>
         </div>
       </motion.div>
@@ -88,7 +82,7 @@ const SolutionBooks = () => {
         transition={{ duration: 1.5, delay: 1 }}
         className="flex-shrink-0 lg:w-1/3 md:w-1/3 sm:w-1/2 xs:w-full p-4"
       >
-        <div className="rounded-lg p-6 gap-5 flex flex-col  justify-center items-center">
+        <div className="rounded-lg p-6 gap-5 flex flex-col justify-center items-center">
           <div className="text-4xl bg-blue-500 w-20 flex items-center justify-center h-20 rounded-full text-white mb-4">
             <FaRegFilePdf />
           </div>
@@ -97,8 +91,11 @@ const SolutionBooks = () => {
           </h2>
         </div>
         <div className="flex justify-center">
-          <button className="text-blue-500  font-bold px-4 rounded-md">
-            {download()}
+          <button
+            className="text-blue-500 font-bold px-4 rounded-md"
+            onClick={() => download("checklist cooling_ru.pdf")}
+          >
+            {i18n.language === "ru" ? "Скачать" : "Download"}
           </button>
         </div>
       </motion.div>
@@ -111,7 +108,7 @@ const SolutionBooks = () => {
         className="flex-shrink-0 lg:w-1/3 md:w-1/3 sm:w-1/2 xs:w-full p-4"
       >
         <div className="rounded-lg p-6 flex flex-col gap-5 justify-center items-center">
-          <div className="text-4xl bg-blue-500 w-20  flex items-center justify-center h-20 rounded-full text-white mb-4">
+          <div className="text-4xl bg-blue-500 w-20 flex items-center justify-center h-20 rounded-full text-white mb-4">
             <FaRegFilePdf />
           </div>
           <h2 className="text-lg font-bold text-center h-[70px]">
@@ -119,8 +116,11 @@ const SolutionBooks = () => {
           </h2>
         </div>
         <div className="flex justify-center">
-          <button className="text-blue-500  font-bold px-4 rounded-md">
-            {download()}
+          <button
+            className="text-blue-500 font-bold px-4 rounded-md"
+            onClick={() => download("checklist boiler_ru.pdf")}
+          >
+            {i18n.language === "ru" ? "Скачать" : "Download"}
           </button>
         </div>
       </motion.div>
