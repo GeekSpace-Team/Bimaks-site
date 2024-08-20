@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
       <div className="air air1">
         <div className="flex flex-col-reverse gap-3  items-center absolute bottom-3 w-full justify-end right-0 ">
           <h1 className="text-xl">{t("footer.poweredBy")}</h1>
-          <img src="./logo/GeekSpaceLogo.svg" alt="GeekSpaceLogo" />
+          <img src="/logo/GeekSpaceLogo.svg" alt="GeekSpaceLogo" />
         </div>
       </div>
       <div className="air air2"></div>
