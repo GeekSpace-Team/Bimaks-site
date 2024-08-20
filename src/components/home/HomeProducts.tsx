@@ -72,7 +72,7 @@ const HomeProducts: FC = () => {
             key={`product_item_${item.id}`}
             className="col-span-12 lg:col-span-3 md:col-span-4 sm:col-span-6 rounded bg-white overflow-hidden shadow-lg hover:cursor-pointer"
           >
-            <img className="w-full" src={item.image} alt="Card" />
+            <img className="w-full h-60" src={item.image} alt="Card" />
             <div className="px-6 py-4 flex flex-col flex-grow">
               <div className="font-bold text-xl mb-2 text-center h-20">
                 {/* {item.name_en} */}
