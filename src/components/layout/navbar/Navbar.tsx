@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Language from "../../language/Language";
-import Toggle from "../../common/theme/ThemeToggle";
+// import Toggle from "../../common/theme/ThemeToggle";
 import { navItems } from "../../../data/data";
 import { useTranslation } from "react-i18next";
 import { Drawer, List, ListItem, ListItemText } from "@mui/material";
@@ -64,7 +64,7 @@ const Navbar: FC = () => {
                   </Link>
                 ))}
                 {isScrolled && <Language />}
-                <Toggle />
+                {/* <Toggle /> */}
               </div>
               <button
                 className="md:hidden rounded-md focus:outline-none"
@@ -110,10 +110,10 @@ const Navbar: FC = () => {
                 </ListItem>
               ))}
               <hr />
-              <div className="flex mt-5 justify-around">
+              {/* <div className="flex mt-5 justify-around">
                 {isScrolled && <Language />}
                 <Toggle />
-              </div>
+              </div> */}
             </List>
           </Drawer>
         </nav>

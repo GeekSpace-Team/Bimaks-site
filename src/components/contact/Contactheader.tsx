@@ -3,20 +3,20 @@ import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
 
 const ContactHeader: FC = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="dark:bg-gray-800 dark:text-white md:p-8">
       <div className="flex flex-col md:flex-row items-center justify-between">
         {/* First Row: Phone Numbers */}
         <div className="flex items-center mb-4 md:mb-0">
-          <FiPhone className="mr-2 mt-4" />
+          <FiPhone className="mr-2 mt-10" />
           <div>
             <p className="font-semibold mb-4">
               {i18n.language === "ru" ? "Телефонные номера" : "Phone Numbers"}
             </p>
-            <p>123-456-7890</p>
-            <p>987-654-3210</p>
+            <p>+993 64550330</p>
+            {/* <p>+993 64550330</p> */}
           </div>
         </div>
         {/* Second Row: Email */}
@@ -26,22 +26,22 @@ const ContactHeader: FC = () => {
             <p className="font-semibold mb-6">
               {i18n.language === "ru" ? "Электронная почта" : "Email"}
             </p>
-            <p>contact@example.com</p>
+            <p>info@bimakstm.com</p>
           </div>
         </div>
         {/* Third Row: Office Address */}
         <div className="flex items-center">
-          <FiMapPin className="mr-2 mt-4" />
+          <FiMapPin className="mr-2 mt-10" />
           <div>
             <p className="font-semibold mb-4">
               {i18n.language === "ru" ? "Адрес офиса" : "Office Address"}
             </p>
-            <p>123 Street Name, City</p>
-            <p>
+            <p>{t("footer.address")}</p>
+            {/* <p>
               {i18n.language === "ru"
                 ? "Страна, Почтовый индекс"
                 : "Country, Postal Code"}
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
