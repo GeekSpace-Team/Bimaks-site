@@ -28,7 +28,7 @@ const ProductList: FC = () => {
 
       try {
         const response = await axios.get(
-          `http://95.85.121.153:5634/product/product-by-group?group=${groupId}`
+          `https://bimakstm.com/api/product/product-by-group?group=${groupId}`
         );
         setProducts(response.data);
       } catch (err) {

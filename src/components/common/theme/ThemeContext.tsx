@@ -14,7 +14,7 @@ const getInitialTheme = () => {
 
     const userMedia = window.matchMedia("(prefers-color-scheme: dark)");
     if (userMedia.matches) {
-      return "dark";
+      return "light";
     }
     return "light"; // light theme as the default;
   }
@@ -42,7 +42,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 
   const rawSetTheme = (rawTheme: string) => {
     const root = window.document.documentElement;
-    const isDark = rawTheme === "dark";
+    const isDark = rawTheme === "light";
 
     root.classList.remove(isDark ? "light" : "dark");
     root.classList.add(rawTheme);
