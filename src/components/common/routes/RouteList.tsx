@@ -23,7 +23,7 @@ const RouteList: React.FC = () => {
 
   // SWR hooks to fetch visitor count
   const { data: visitorData, error } = useSWR(
-    "http://95.85.121.153:3001/api/visitor-count",
+    "https://bimakstm.com/visitor/api/visitor-count",
     fetcher
   );
 
@@ -36,7 +36,7 @@ const RouteList: React.FC = () => {
     if (!isAdmin) {
       axios
         .post(
-          "http://95.85.121.153:3001/api/increment-visitor-count",
+          "https://bimakstm.com/visitor/api/visitor-count",
           {},
           {
             headers: {
@@ -46,7 +46,7 @@ const RouteList: React.FC = () => {
         )
         .then(() => {
           // Trigger a revalidation of the visitor count
-          mutate("http://95.85.121.153:3001/api/visitor-count");
+          mutate("https://bimakstm.com/visitor/api/visitor-count");
         })
         .catch((error) =>
           console.error("Error incrementing visitor count:", error)

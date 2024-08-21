@@ -22,7 +22,7 @@ const HomeProducts: FC = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "http://95.85.121.153:5634/product-group"
+          "https://bimakstm.com/api/product-group"
         );
         setProducts(response.data);
       } catch (err) {

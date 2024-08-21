@@ -9,7 +9,7 @@ const Dashboard: React.FC = () => {
 
   // SWR hooks to fetch visitor count
   const { data: visitorData, error } = useSWR(
-    "http://95.85.121.153:3001/api/visitor-count",
+    "https://bimakstm.com/visitor/api/visitor-count",
     fetcher
   );
 
@@ -19,7 +19,7 @@ const Dashboard: React.FC = () => {
 
     // Increment visitor count if not admin
     if (!isAdmin) {
-      fetch("http://95.85.121.153:3001/api/increment-visitor-count", {
+      fetch("https://bimakstm.com/visitor/api/visitor-count", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,7 +27,7 @@ const Dashboard: React.FC = () => {
       })
         .then(() => {
           // Trigger a revalidation of the visitor count
-          mutate("http://95.85.121.153:3001/api/visitor-count");
+          mutate("https://bimakstm.com/visitor/api/visitor-count");
         })
         .catch((error) =>
           console.error("Error incrementing visitor count:", error)

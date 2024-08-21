@@ -3,11 +3,15 @@ import { FC } from "react";
 
 const Logo: FC = () => {
   return (
-    <div className="flex flex-col items-start">
-      <h1 className="text-blue-500 text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+    <div className="flex flex-col items-start gap-1">
+      {/* <h1 className="text-blue-500 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-['poppins']">
         bimaks
-      </h1>
-      <p className="text-blue-500 text-xs sm:text-sm md:text-base lg:text-lg mt-[-2px] sm:mt-[-4px] md:mt-[-6px] lg:mt-[-8px]">
+      </h1> */}
+      <img src="/logo/bimaks-logo.png" style={{ width: "130px" }} alt="" />
+      <p
+        style={{ color: "#7D93DC" }}
+        className=" text-xs sm:text-sm md:text-base lg:text-lg mt-[-2px] sm:mt-[-4px] md:mt-[-6px] lg:mt-[-8px]"
+      >
         TURKMENISTAN
       </p>
     </div>
