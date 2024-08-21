@@ -12,7 +12,7 @@ const getInitialTheme = () => {
       return storedPref;
     }
 
-    const userMedia = window.matchMedia("(prefers-color-scheme: dark)");
+    const userMedia = window.matchMedia("(prefers-color-scheme: light)");
     if (userMedia.matches) {
       return "light";
     }
