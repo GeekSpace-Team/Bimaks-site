@@ -19,13 +19,13 @@ const SupportText = () => {
   const subtitleByLanguage = () => {
     switch (i18n.language) {
       case "en":
-        return "BİMAKS’s Technical Assistance department aims to provide you with themost efficient solutions.";
+        return "BIMAKS’s Technical Assistance department aims to provide you with themost efficient solutions.";
       case "ru":
         return "Целью отдела технической поддержки BIMAKS является предоставление вам наиболее эффективные решения.";
       case "tm":
-        return "BİMAKS’s Technical Assistance department aims to provide you with themost efficient solutions.";
+        return "BIMAKS’s Technical Assistance department aims to provide you with themost efficient solutions.";
       default:
-        return "BİMAKS’s Technical Assistance department aims to provide you with themost efficient solutions.";
+        return "BIMAKS’s Technical Assistance department aims to provide you with themost efficient solutions.";
     }
   };
 

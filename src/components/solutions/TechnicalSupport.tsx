@@ -20,13 +20,13 @@ const TechnicalSupport = () => {
   const subtitleByLanguage = () => {
     switch (i18n.language) {
       case "en":
-        return "An order to help you better, please indicate your water treatment system and fill in the following forms and send it to info@bimakskimya.com";
+        return "An order to help you better, please indicate your water treatment system and fill in the following forms and send it to info@bimakstm.com";
       case "ru":
-        return "Для того, чтобы помочь вам лучше, пожалуйста, укажите вашу систему очистки воды, заполните следующие формы и отправьте их на адрес info@bimakskimya.com";
+        return "Для того, чтобы помочь вам лучше, пожалуйста, укажите вашу систему очистки воды, заполните следующие формы и отправьте их на адрес info@bimakstm.com";
       case "tm":
-        return "An order to help you better, please indicate your water treatment system and fill in the following forms and send it to info@bimakskimya.com";
+        return "An order to help you better, please indicate your water treatment system and fill in the following forms and send it to info@bimakstm.com";
       default:
-        return "An order to help you better, please indicate your water treatment system and fill in the following forms and send it to info@bimakskimya.com";
+        return "An order to help you better, please indicate your water treatment system and fill in the following forms and send it to info@bimakstm.com";
     }
   };
 
