@@ -1,11 +1,11 @@
-import { FC, ReactNode } from "react";
+// import { FC, ReactNode } from "react";
 
-interface BackgroundProps {
-  children: ReactNode;
-}
+// interface BackgroundProps {
+//   children: ReactNode;
+// }
 
-const Background: FC<BackgroundProps> = ({ children }) => {
-  return <div className="bg-white dark:bg-gray-800">{children}</div>;
-};
+// const Background: FC<BackgroundProps> = ({ children }) => {
+//   return <div className="bg-white ">{children}</div>;
+// };
 
-export default Background;
+// export default Background;

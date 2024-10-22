@@ -1,9 +1,14 @@
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 // import logo from "/logo/biMaksLogo.svg";
 
 const Logo: FC = () => {
+  const navigate = useNavigate();
   return (
-    <div className="flex flex-col items-start gap-1">
+    <div
+      onClick={() => navigate("/")}
+      className="flex flex-col items-start gap-1 cursor-pointer"
+    >
       {/* <h1 className="text-blue-500 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-['poppins']">
         bimaks
       </h1> */}

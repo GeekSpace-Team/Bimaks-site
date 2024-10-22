@@ -6,6 +6,14 @@
   html {
     @apply text-gray-800;
   }
+
+  body {
+    background-color: #fff;
+  }
+}
+
+body {
+  background-color: #fff;
 }
 
 section {
